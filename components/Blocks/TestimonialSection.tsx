@@ -1,57 +1,55 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Marquee } from "@/components/ui/marquee"
-
 import { cn } from "@/lib/utils"
 
-const reviews = [
+// هنا بنعرض "قصص" أو "حالات" حقيقية بنحلها، مش آراء وهمية.
+const stories = [
     {
-        name: "Sarah Chen",
-        username: "@sarahchen",
-        body: "ChatDeck reduced our support ticket response time by 60%. The AI understands context incredibly well and our customers love the instant responses.",
-        img: "https://notion-avatars.netlify.app/api/avatar?preset=female-1",
+        name: "معرض أثاث - دبي",
+        username: "قبل Olana",
+        body: "كنا بنستقبل أكتر من 100 رسالة واتساب في اليوم، ونصهم كان بيضيع لأن السيلز بينسى يرد. دلوقتي كل ليد ليه مسؤول ومتابعة.",
+        img: "",
     },
     {
-        name: "Marcus Johnson",
-        username: "@marcusj",
-        body: "We've seen a 40% reduction in support costs since implementing ChatDeck. It handles routine queries flawlessly, letting our team focus on complex issues.",
-        img: "https://notion-avatars.netlify.app/api/avatar/?face=1&nose=10&mouth=8&eyes=11&eyebrows=1&glasses=14&hair=40&accessories=0&details=0&beard=0&halloween=0&christmas=0",
+        name: "شركة عقارات - الشارقة",
+        username: "قبل Olana",
+        body: "كان عندنا مشكلة إن الوحدات المتاحة بتتوه بين الإعلانات والواتساب. دلوقتي المحفظة العقارية واضحة، وكل وحدة ليها حالة.",
+        img: "",
     },
     {
-        name: "Emily Rodriguez",
-        username: "@emilyrodriguez",
-        body: "The setup was surprisingly simple. Within hours, ChatDeck was answering customer questions with accuracy that rivals our best human agents.",
-        img: "https://notion-avatars.netlify.app/api/avatar/?face=13&nose=7&mouth=11&eyes=3&eyebrows=12&glasses=3&hair=40&accessories=0&details=0&beard=0&halloween=0&christmas=0",
+        name: "مصنع مطابخ - أبوظبي",
+        username: "قبل Olana",
+        body: "العميل كان بيدفع مقدم ويختفي. مكنش فيه نظام يتابع. دلوقتي الـ Zero Lost Leads بيضمن إن مفيش عميل ينسى.",
+        img: "",
     },
     {
-        name: "David Kim",
-        username: "@davidkim",
-        body: "Our customer satisfaction scores jumped 25% after deploying ChatDeck. It's like having a 24/7 support team that never sleeps.",
-        img: "https://notion-avatars.netlify.app/api/avatar/?face=9&nose=3&mouth=7&eyes=10&eyebrows=12&glasses=1&hair=35&accessories=0&details=0&beard=0&halloween=0&christmas=0",
+        name: "معرض أثاث - عجمان",
+        username: "قبل Olana",
+        body: "كنا بنعتمد على الذاكرة في المتابعة. دلوقتي النظام بيفكرنا، وشاشة متابعات اليوم بتخلينا نبدأ يومنا صح.",
+        img: "",
     },
     {
-        name: "Priya Patel",
-        username: "@priyapatel",
-        body: "ChatDeck's multilingual support opened up global markets for us. We now serve customers in 12 languages without hiring additional staff.",
-        img: "https://notion-avatars.netlify.app/api/avatar/?face=8&nose=7&mouth=4&eyes=0&eyebrows=6&glasses=11&hair=19&accessories=0&details=0&beard=0&halloween=0&christmas=0",
+        name: "شركة تطوير عقاري - دبي",
+        username: "قبل Olana",
+        body: "المدير كان مش عارف مين السيلز اللي بيشتغل ومين لأ. دلوقتي التقارير بتوضح كل حاجة بالأرقام.",
+        img: "",
     },
     {
-        name: "Alex Thompson",
-        username: "@alexthompson",
-        body: "The analytics dashboard is a game-changer. We now understand our customers' pain points better than ever and can proactively improve our product.",
-        img: "https://notion-avatars.netlify.app/api/avatar/?face=1&nose=1&mouth=1&eyes=1&eyebrows=1&glasses=1&hair=1&accessories=1&details=1&beard=1&halloween=1&christmas=1",
+        name: "شركة أثاث - دبي",
+        username: "قبل Olana",
+        body: "كانت الفوضى في توزيع الليدز. دلوقتي كل ليد بيتوزع على السيلز الصح، وفي تاريخ متابعة إجباري.",
+        img: "",
     },
 ]
 
-const firstRow = reviews.slice(0, reviews.length / 2)
-const secondRow = reviews.slice(reviews.length / 2)
+const firstRow = stories.slice(0, stories.length / 2)
+const secondRow = stories.slice(stories.length / 2)
 
-const ReviewCard = ({
-    img,
+const StoryCard = ({
     name,
     username,
     body,
 }: {
-    img: string
     name: string
     username: string
     body: string
@@ -59,62 +57,53 @@ const ReviewCard = ({
     return (
         <figure
             className={cn(
-                "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-                // light styles
-                "border-gray-950/10 bg-muted/40",
-                // dark styles
-                "dark:border-gray-50/10 dark:bg-gray-50/10"
+                "relative h-full w-80 cursor-pointer overflow-hidden rounded-xl border p-6",
+                "border-border bg-card shadow-sm",
+                "dark:border-border dark:bg-card"
             )}
         >
-            <div className="flex flex-row items-center gap-2">
-                <Avatar className="bg-muted size-12 shrink-0">
-                    <AvatarImage
-                        alt={name}
-                        src={img}
-                        loading="lazy"
-                        width="120"
-                        height="120"
-                    />
-                    <AvatarFallback>
-                        {name
-                            .split(' ')
-                            .map(n => n[0])
-                            .join('')}
-                    </AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col">
-                    <figcaption className="text-sm font-medium dark:text-white">
-                        {name}
-                    </figcaption>
-                    <p className="text-xs font-medium dark:text-white/40">{username}</p>
+            <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-2">
+                     <Avatar className="size-12 shrink-0 bg-primary/10 text-primary">
+                        <AvatarFallback className="text-lg font-bold">
+                            {name.split(' ')[0].charAt(0)}
+                        </AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col">
+                        <figcaption className="text-base font-bold text-foreground">
+                            {name}
+                        </figcaption>
+                        <p className="text-xs font-medium text-muted-foreground">{username}</p>
+                    </div>
                 </div>
+                <blockquote className="text-sm text-muted-foreground leading-relaxed">
+                    {body}
+                </blockquote>
             </div>
-            <blockquote className="mt-2 text-sm">{body}</blockquote>
         </figure>
     )
 }
 
 export function TestimonialSection() {
     return (
-        <div id="testimonials" className="max-w-7xl mx-auto py-24 sm:py-32">
+        <div id="testimonials" className="max-w-7xl mx-auto py-24 sm:py-32" dir="rtl">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
-                    What Our Customers Say
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+                    مشاكل بنحلها كل يوم
                 </h2>
-                <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-                    Join thousands of businesses that have transformed their customer support with ChatDeck.
-                    Here&apos;s what they have to say about real results.
+                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                    إحنا مش بس بنسجل بيانات، إحنا بنحل مشاكل حقيقية بتواجه شركات المبيعات كل يوم.
                 </p>
             </div>
-            <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-2">
-                <Marquee pauseOnHover className="[--duration:20s]">
-                    {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+            <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-4">
+                <Marquee pauseOnHover className="[--duration:30s]">
+                    {firstRow.map((story) => (
+                        <StoryCard key={story.name} {...story} />
                     ))}
                 </Marquee>
-                <Marquee reverse pauseOnHover className="[--duration:20s]">
-                    {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+                <Marquee reverse pauseOnHover className="[--duration:30s]">
+                    {secondRow.map((story) => (
+                        <StoryCard key={story.name} {...story} />
                     ))}
                 </Marquee>
                 <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r"></div>

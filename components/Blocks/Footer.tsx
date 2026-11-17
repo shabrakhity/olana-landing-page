@@ -1,39 +1,50 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const Footer = () => {
     return (
-        <footer className="border-t border-gray-200 dark:border-gray-800 mt-24">
+        <footer className="border-t border-border mt-24" dir="rtl">
             <div className="mx-auto max-w-7xl px-6 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Brand Section */}
                     <div className="col-span-1 md:col-span-1">
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                            ChatDeck
-                        </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                            AI-powered customer support chatbot for modern businesses.
+                        <Link href="/" className="inline-flex items-center gap-2 mb-4">
+                            <Image 
+                                src="/olana-logo.png" 
+                                alt="Olana FZE" 
+                                width={120} 
+                                height={35} 
+                                className="h-9 w-auto object-contain" 
+                            />
+                            <span className="text-lg font-bold text-foreground">FZE</span>
+                        </Link>
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-2 font-medium">
+                            Olana FZE - CRM System
+                        </p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                            نظام مبيعات ذكي لشركات الأثاث والمفروشات. بنساعدك تنظم شغلك وتمنع ضياع أي عميل.
                         </p>
                     </div>
 
                     {/* Product Links */}
                     <div>
-                        <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">
-                            Product
+                        <h4 className="text-sm font-semibold text-foreground mb-4">
+                            المنتج
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                             <li>
-                                <Link href="#features" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Features
+                                <Link href="#features" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    الميزات
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#pricing" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Pricing
+                                <Link href="#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    الأسعار
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#testimonials" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Testimonials
+                                <Link href="#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    الأسئلة الشائعة
                                 </Link>
                             </li>
                         </ul>
@@ -41,23 +52,18 @@ export const Footer = () => {
 
                     {/* Company Links */}
                     <div>
-                        <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">
-                            Company
+                        <h4 className="text-sm font-semibold text-foreground mb-4">
+                            الشركة
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                             <li>
-                                <Link href="#about" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    About
+                                <Link href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    عن Olana
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#blog" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Blog
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="#team" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Team
+                                <Link href="#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    اتصل بنا
                                 </Link>
                             </li>
                         </ul>
@@ -65,23 +71,18 @@ export const Footer = () => {
 
                     {/* Legal Links */}
                     <div>
-                        <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">
-                            Legal
+                        <h4 className="text-sm font-semibold text-foreground mb-4">
+                            الشروط والأحكام
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                             <li>
-                                <Link href="#privacy" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Privacy
+                                <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    سياسة الخصوصية
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#terms" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Terms
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="#cookies" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    Cookie Policy
+                                <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    شروط الاستخدام
                                 </Link>
                             </li>
                         </ul>
@@ -89,9 +90,9 @@ export const Footer = () => {
                 </div>
 
                 {/* Copyright */}
-                <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-                    <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                        © {new Date().getFullYear()} ChatDeck. All rights reserved.
+                <div className="mt-12 pt-8 border-t border-border">
+                    <p className="text-sm text-muted-foreground text-center">
+                        © {new Date().getFullYear()} Olana FZE. جميع الحقوق محفوظة.
                     </p>
                 </div>
             </div>

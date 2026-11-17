@@ -8,53 +8,56 @@ import { useState } from 'react'
 
 const plans = [
     {
-        name: 'Free',
-        description: 'Perfect for testing ChatDeck on your personal website',
-        monthlyPrice: 0,
-        yearlyPrice: 0,
+        name: 'Starter',
+        description: 'مثالي للمعارض الصغيرة والبداية السريعة',
+        monthlyPrice: 149,
+        yearlyPrice: 119, // خصم 20%
         features: [
-            '1 AI Chatbot',
-            '50 conversations/month',
-            'Train on 1 website',
-            'Basic analytics',
-            'Community support'
+            'عدد 2 مستخدم',
+            'إدارة ليدز غير محدودة',
+            'متابعات يومية (Zero Lost Leads)',
+            'سجل تواصل كامل لكل عميل',
+            'لوحة تحكم أساسية',
+            'دعم فني عبر واتساب'
         ],
-        cta: 'Get Started',
+        cta: 'ابدأ التجربة المجانية',
         popular: false
     },
     {
-        name: 'Pro',
-        description: 'For growing businesses that need more power',
-        monthlyPrice: 29,
-        yearlyPrice: 24,
+        name: 'Growth',
+        description: 'لشركات الأثاث اللي عايزة تكبر وتنظم فريقها',
+        monthlyPrice: 299,
+        yearlyPrice: 239,
         features: [
-            '3 AI Chatbots',
-            '1,000 conversations/month',
-            'Train on unlimited websites & docs',
-            'Remove ChatDeck branding',
-            'Integrations (Slack, Zapier)',
-            'Priority email support'
+            'عدد 5 مستخدمين',
+            'كل مميزات Starter',
+            'تقارير أداء الفريق',
+            'نظام الموديولات (Feature Flags)',
+            'هوية بصرية (لوجو ولون)',
+            'تصدير البيانات (CSV)',
+            'دعم فني ذو أولوية'
         ],
-        cta: 'Start Free Trial',
+        cta: 'ابدأ التجربة المجانية',
         popular: true,
-        includesPrevious: 'All Free features, plus'
+        includesPrevious: 'كل مميزات Starter، بالإضافة إلى'
     },
     {
         name: 'Business',
-        description: 'For large teams requiring scale and control',
-        monthlyPrice: 99,
-        yearlyPrice: 79,
+        description: 'للمصانع والمعارض الكبيرة اللي محتاجة تحكم كامل',
+        monthlyPrice: 599,
+        yearlyPrice: 479,
         features: [
-            '10 AI Chatbots',
-            '5,000 conversations/month',
-            'Priority 24/7 support',
-            'API Access',
-            'Smart Escalation to humans',
-            'Custom integrations'
+            'عدد 12 مستخدم',
+            'كل مميزات Growth',
+            'سجل عمليات (Activity Log)',
+            'عروض أسعار (قريباً)',
+            'تكامل واتساب (قريباً)',
+            'مدير حساب مخصص',
+            'تدريب للفريق (Onboarding)'
         ],
-        cta: 'Contact Sales',
+        cta: 'تواصل مع المبيعات',
         popular: false,
-        includesPrevious: 'All Pro features, plus'
+        includesPrevious: 'كل مميزات Growth، بالإضافة إلى'
     }
 ]
 
@@ -62,16 +65,16 @@ export function PricingSection() {
     const [isYearly, setIsYearly] = useState(false)
 
     return (
-        <section id="pricing" className="py-24 sm:py-32 border bg-muted/40 rounded-xl">
+        <section id="pricing" className="py-24 sm:py-32 border bg-muted/40 rounded-xl" dir="rtl">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="mx-auto max-w-2xl text-center mb-12">
-                    <Badge variant="outline" className="mb-4">Pricing Plans</Badge>
+                    <Badge variant="outline" className="mb-4">خطط الأسعار</Badge>
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                        Choose your plan
+                        اختر الباقة المناسبة لشغلك
                     </h2>
                     <p className="text-lg text-muted-foreground mb-8">
-                        Start with our free AI chatbot to automate support, or upgrade to Pro for unlimited training sources and advanced integrations.
+                        ابدأ بتجربة مجانية 14 يوم. بدون بطاقة ائتمان. وبدون التزام.
                     </p>
 
                     {/* Billing Toggle */}
@@ -85,19 +88,19 @@ export function PricingSection() {
                                 value="monthly"
                                 className="data-pressed:bg-background data-pressed:border-border border-transparent border px-6 !rounded-full data-pressed:text-foreground hover:bg-transparent cursor-pointer transition-colors"
                             >
-                                Monthly
+                                شهري
                             </ToggleGroupItem>
                             <ToggleGroupItem
                                 value="yearly"
                                 className="data-pressed:bg-background data-pressed:border-border border-transparent border px-6 !rounded-full data-pressed:text-foreground hover:bg-transparent cursor-pointer transition-colors"
                             >
-                                Annually
+                                سنوي
                             </ToggleGroupItem>
                         </ToggleGroup>
                     </div>
 
                     <p className="text-sm text-muted-foreground">
-                        <span className="text-primary font-semibold">Save 20%</span> On Annual Billing
+                        <span className="text-primary font-semibold">وفر 20%</span> عند الدفع السنوي
                     </p>
                 </div>
 
@@ -121,17 +124,12 @@ export function PricingSection() {
 
                                     {/* Pricing */}
                                     <div>
-                                        <div className="text-4xl font-bold mb-1">
-                                            {plan.name === 'Lifetime' ? (
-                                                `$${plan.monthlyPrice}`
-                                            ) : plan.name === 'Free' ? (
-                                                '$0'
-                                            ) : (
-                                                `$${isYearly ? plan.yearlyPrice : plan.monthlyPrice}`
-                                            )}
+                                        <div className="text-4xl font-bold mb-1 flex items-baseline gap-1">
+                                            <span className="text-2xl font-normal">AED</span>
+                                            {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                                         </div>
                                         <div className="text-muted-foreground text-sm">
-                                            {plan.name === 'Lifetime' ? 'One-time payment' : 'Per month'}
+                                            / شهرياً
                                         </div>
                                     </div>
 
@@ -143,6 +141,10 @@ export function PricingSection() {
                                                 : 'shadow-sm shadow-black/15 border border-transparent bg-background ring-1 ring-foreground/10 hover:bg-muted/50'
                                                 }`}
                                             variant={plan.popular ? 'default' : 'secondary'}
+                                            onClick={() => {
+                                                // تقدر تغير الرابط ده لصفحة التسجيل في تطبيقك
+                                                window.location.href = '/signup';
+                                            }}
                                         >
                                             {plan.cta}
                                         </Button>

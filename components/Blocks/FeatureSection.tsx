@@ -2,11 +2,12 @@
 
 import { cn } from "@/lib/utils";
 import {
-    BookOpen,
+    Users,
     Clock,
     MessageCircle,
+    ShieldCheck,
     Puzzle,
-    Users,
+    BarChart3,
     Zap,
 } from "lucide-react";
 import { motion } from "motion/react";
@@ -14,38 +15,40 @@ import { motion } from "motion/react";
 export function FeaturesSection() {
     const features = [
         {
-            title: "Trained On Your Own Content",
+            title: "مفيش ليد بيضيع",
             description:
-                "ChatDeck absorbs knowledge from your website, help docs, product guides, blog posts, PDFs, and FAQs — ensuring context-rich, accurate responses your customers can trust.",
-            icon: <BookOpen />,
+                "كل عميل بيتسجل لازم يكون له مسؤول وتاريخ متابعة قادم. التطبيق بيفكرك بمتابعات النهاردة واللي فاتت، عشان مفيش عميل ينسى.",
+            icon: <ShieldCheck />,
         },
         {
-            title: "24/7 Real-Time Support",
+            title: "إدخال في 10 ثواني",
             description:
-                "Never miss a single customer again. From midnight queries to weekend pre-sales questions, ChatDeck handles it instantly, anytime, anywhere.",
-            icon: <Clock />,
-        },
-        {
-            title: "Human-Like Interactions",
-            description:
-                "Designed to talk like a real support agent — friendly, natural, and no robotic AI vibes. Keeps conversations helpful and on-brand.",
-            icon: <MessageCircle />,
-        },
-        {
-            title: "No Code Setup",
-            description: "Connect → Train → Publish. Literally minutes, not weeks — no developers, no complicated workflow.",
+                "سجل عميل جديد بضغطة واحدة، من غير نماذج معقدة. السيلز بيكمل شغله على الواتساب، إحنا بس بننظمه.",
             icon: <Zap />,
         },
         {
-            title: "Integrates With Your Favorite Tools",
-            description: "Connect with CRM, WhatsApp, Messenger, Slack, Gmail, Intercom, HubSpot, Notion, and more — automate workflows end-to-end.",
-            icon: <Puzzle />,
+            title: "سجل تواصل كامل",
+            description:
+                "كل مكالمة، واتساب، أو زيارة معرض بتتسجل مع النتيجة والملاحظة. تعرف بالظبط إيه آخر حاجة حصلت مع كل عميل.",
+            icon: <MessageCircle />,
         },
         {
-            title: "Smart Escalation",
+            title: "تقارير ومصادر",
             description:
-                "Complex queries? No problem. ChatDeck hands off conversations to human agents with full chat history included.",
+                "اعرف أكتر مصدر بيجيب ليدز (واتساب، فيسبوك، معرض)، وأكتر نتيجة تواصل متكررة. قراراتك بتبقى مبنية على أرقام.",
+            icon: <BarChart3 />,
+        },
+        {
+            title: "إدارة فريق وصلاحيات",
+            description:
+                "الأدمن بيشوف كل حاجة، والسيلز بيشوف ليدزه بس. كل شركة ليها بياناتها المعزولة تماماً.",
             icon: <Users />,
+        },
+        {
+            title: "جاهز للتوسع",
+            description:
+                "التطبيق مبني على موديولات، عشان تقدر تضيف مميزات جديدة (عروض أسعار، عقود، واتساب API) من غير ما تكسر اللي شغال.",
+            icon: <Puzzle />,
         },
     ];
     return (
@@ -58,11 +61,10 @@ export function FeaturesSection() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
-                    Why Choose ChatDeck?
+                    ليه تختار Olana CRM؟
                 </h2>
                 <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-                    Experience the future of customer support with AI that actually understands your business.
-                    Built for scale, designed for humans.
+                    مش مجرد CRM. ده نظام بيضمن إن كل عميل بيتابع، وكل صفقة بتتقفل، وكل قرار بيتبني على داتا حقيقية.
                 </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-10">

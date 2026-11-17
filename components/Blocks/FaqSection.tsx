@@ -1,4 +1,4 @@
-import { HeadsetIcon, LinkIcon, PlusIcon, SettingsIcon, ShieldCheckIcon, SparklesIcon } from 'lucide-react'
+import { HeadsetIcon, LinkIcon, PlusIcon, SettingsIcon, ShieldCheckIcon, SparklesIcon, RefreshCw, Users } from 'lucide-react'
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
@@ -6,60 +6,67 @@ export function FaqSection() {
     const items = [
         {
             icon: SparklesIcon,
-            title: 'What is ChatDeck?',
+            title: 'إيه اللي بيفرق Olana CRM عن أي CRM تاني؟',
             content:
-                'ChatDeck is an AI-powered customer support chatbot trained specifically on YOUR website content. Like ChatGPT, but for your business — it learns from your help docs, product guides, blog posts, PDFs, and FAQs to provide accurate, context-rich answers to your customers 24/7. No coding required.'
-        },
-        {
-            icon: LinkIcon,
-            title: 'How does ChatDeck train on my content?',
-            content:
-                'Simply connect your website, upload your documentation, or paste links to your help resources. ChatDeck absorbs knowledge from unlimited websites, PDFs, help docs, and FAQs. The AI chatbot then uses this information to provide accurate, on-brand responses tailored to your specific business.'
-        },
-        {
-            icon: SettingsIcon,
-            title: 'How long does it take to set up ChatDeck?',
-            content:
-                'Minutes, not weeks! Our no-code setup is as simple as: Connect → Train → Publish. You can have your AI chatbot live on your website in under 10 minutes. No developers or complicated workflows needed — just point us to your content and we handle the rest.'
+                'معظم أنظمة الـ CRM بتجبر السيلز إنه يغير طريقة شغله ويدخل كل حاجة بنفسه. Olana مصمم "بالعكس" — السيلز بيكمل شغله العادي على الواتساب والموبايل، وبيدخل التطبيق ثواني عشان يسجل "إيه اللي حصل". إحنا بننظم شغلك، مش بنعقده. وكمان إحنا متخصصين في شركات الأثاث والمفروشات، فبنفهم المقاسات، الخامات، والتصاميم.'
         },
         {
             icon: ShieldCheckIcon,
-            title: 'What happens when the chatbot can\'t answer a question?',
+            title: 'هل بيانات شركتي وعملائي آمنة؟',
             content:
-                'ChatDeck includes Smart Escalation. When the AI encounters a complex query it can\'t confidently answer, it seamlessly hands off the conversation to a human agent with the full chat history included. This ensures your customers always get the help they need without frustration.'
+                'آمنة 100%. إحنا بنستخدم Supabase (المبنية على PostgreSQL) مع تفعيل سياسات أمان صارمة (Row Level Security). ده معناه إن بيانات شركتك معزولة تماماً عن أي شركة تانية على النظام. حتى إحنا كمالكين للنظام، مش بنقدر نشوف بيانات عملائك. كل شركة ليها بيئة مغلقة.'
+        },
+        {
+            icon: Users,
+            title: 'هل ينفع أضيف فريق المبيعات بتاعي؟',
+            content:
+                'أكيد. تقدر تضيف عدد من المستخدمين حسب الباقة (2 في Starter، 5 في Growth، 12 في Business). وكل مستخدم ليه صلاحيات محددة (مدير أو سيلز). المدير بيشوف كل حاجة وتقارير الأداء، والسيلز بيشوف الليدز بتاعته بس. النظام بيضمن إن مفيش ليد بيضيع لأنه بيفرض إن كل ليد عنده مسؤول وتاريخ متابعة.'
+        },
+        {
+            icon: LinkIcon,
+            title: 'هل النظام مربوط بالواتساب؟',
+            content:
+                'حالياً، النظام فيه زر بيوجهك مباشرة لواتساب العميل عشان تبدأ محادثة. لكننا شغالين على تكامل كامل مع WhatsApp Business API (قريباً جداً)، عشان تقدر تستقبل وتبعت الرسائل من داخل التطبيق، وتتسجل المحادثات تلقائياً في سجل العميل.'
+        },
+        {
+            icon: SettingsIcon,
+            title: 'هل فيه فترة تجريبية؟ وإيه شروط الإلغاء؟',
+            content:
+                'أيوه، فيه تجربة مجانية 14 يوم على أي باقة، وبدون الحاجة لبطاقة ائتمان. بعدها تقدر تختار الباقة المناسبة. ومفيش أي عقود طويلة الأجل — تقدر تلغي اشتراكك في أي وقت من الإعدادات، وبياناتك هتظل محفوظة لمدة 30 يوم في حال رغبت في الرجوع.'
         },
         {
             icon: HeadsetIcon,
-            title: 'Are there limits on the number of conversations?',
+            title: 'إيه اللي هيحصل لو محتاج مساعدة أو تدريب للفريق؟',
             content:
-                'Yes, depending on your plan. The Free plan includes 50 conversations/month, Pro offers 1,000 conversations/month, and Business supports 5,000 conversations/month. A conversation is counted each time a unique visitor interacts with your chatbot. Need more? Contact us for custom enterprise pricing.'
+                'إحنا معاك خطوة بخطوة. في باقة Starter، بتقدر تتواصل معانا عبر واتساب. في باقة Growth، فيه دعم فني ذو أولوية. في باقة Business، بنعملك جلسة تدريب كاملة للفريق (Onboarding) عشان تضمن إن السيلز بتاعك بدأوا يستخدموا النظام صح من أول يوم.'
         }
     ]
     return (
-        <div id="faq" className='py-24 sm:py-32'>
+        <div id="faq" className='py-24 sm:py-32' dir="rtl">
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
-                    Frequently Asked Questions
+                    الأسئلة الشائعة
                 </h2>
                 <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-                    Everything you need to know about ChatDeck and how it can transform your business.
+                    كل اللي محتاج تعرفه عن Olana CRM، وإزاي هيساعدك تنظم شغل شركتك وتكبر مبيعاتك.
                 </p>
             </div>
             <Accordion className='max-w-4xl mx-auto' defaultValue={['item-1']}>
                 {items.map((item, index) => (
                     <AccordionItem key={index} value={`item-${index + 1}`}>
-                        <AccordionTrigger className='py-4 **:data-[slot=accordion-trigger-icon]:hidden'>
-                            <span className='flex items-center gap-4'>
-                                <item.icon className='size-4 shrink-0' />
-                                <span>{item.title}</span>
+                        <AccordionTrigger className='py-4 **:data-[slot=accordion-trigger-icon]:hidden hover:no-underline'>
+                            <span className='flex items-center gap-4 text-right'>
+                                <item.icon className='size-5 shrink-0 text-primary' />
+                                <span className="text-base font-medium">{item.title}</span>
                             </span>
                             <PlusIcon className='text-muted-foreground pointer-events-none ml-auto size-4 shrink-0 transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-45' />
                         </AccordionTrigger>
-                        <AccordionContent className='text-muted-foreground'>{item.content}</AccordionContent>
+                        <AccordionContent className='text-muted-foreground leading-relaxed text-sm md:text-base pr-9'>
+                            {item.content}
+                        </AccordionContent>
                     </AccordionItem>
                 ))}
             </Accordion>
         </div>
     )
 }
-
