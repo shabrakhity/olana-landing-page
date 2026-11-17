@@ -16,12 +16,10 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 export const metadata: Metadata = {
-  title: "Olana FZE | نظام مبيعات لشركات الأثاث",
-  description: "نظام مبيعات ذكي لشركات الأثاث والمفروشات. امنع ضياع الليدز وزود مبيعاتك.",
+  title: "Olana FZE | نظام مبيعات ذكي",
+  description: "نظام مبيعات متكامل لإدارة العملاء والمتابعات. امنع ضياع الليدز وزود مبيعاتك.",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
